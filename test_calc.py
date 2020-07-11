@@ -1,8 +1,9 @@
 import calc
 import pytest
+import sys
 
 
-@pytest.mark.number
+@pytest.mark.skipif(sys.version_info < (3, 3), reason="we can skip this test")
 def test_add():
     assert calc.add(2, 5) == 7
     assert calc.add(0) == 2
